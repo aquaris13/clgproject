@@ -1,0 +1,22 @@
+<h1>Category List</h1>
+<a href="{% url 'category_add' %}">Add Category</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Scheme</th>
+        <th>Status</th>
+        <th>Actions</th>
+    </tr>
+    {% for cat in categories %}
+    <tr>
+        <td>{{ cat.id }}</td>
+        <td>{{ cat.name }}</td>
+        <td>{{ cat.scheme }}</td>
+        <td>{{ cat.get_status_display }}</td>
+        <td>
+            <a href="{% url 'category_edit' cat.id %}">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
